@@ -53,7 +53,7 @@ resource "aws_security_group" "rds" {
 
 resource "aws_db_parameter_group" "education" {
   name   = "education"
-  family = "postgres14"
+  family = "postgres16"   # aanpassing van version 14 to 16
 
   parameter {
     name  = "log_connections"
@@ -66,7 +66,7 @@ resource "aws_db_instance" "education" {
   instance_class         = "db.t3.micro"
   allocated_storage      = 5
   engine                 = "postgres"
-  engine_version         = "14.1"
+  engine_version         = "16.4"
   username               = "edu"
   password               = var.db_password
   db_subnet_group_name   = aws_db_subnet_group.education.name
